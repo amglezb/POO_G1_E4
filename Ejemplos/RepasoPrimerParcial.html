@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía de Programación Orientada a Objetos (POO) en Java</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100" style="background-color: #f8f9fa;">
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2" style="color: #073B4C;">Guía Visual de POO en Java</h1>
+            <p class="text-lg md:text-xl text-gray-600" style="color: #118AB2;">Un recorrido interactivo por los conceptos fundamentales de la Programación Orientada a Objetos.</p>
+        </header>
+
+        <main class="space-y-16">
+            <section id="sintaxis">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold" style="color: #073B4C;">1. Fundamentos: La Sintaxis de Java</h2>
+                    <p class="mt-2 text-gray-700 max-w-2xl mx-auto">Antes de construir objetos, debemos conocer las herramientas básicas. La sintaxis de Java es el cimiento sobre el cual se edifica toda la lógica de la Programación Orientada a Objetos.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <span class="text-5xl" role="img" aria-label="variable">🔢</span>
+                        <h3 class="text-2xl font-semibold mt-4 mb-2" style="color: #118AB2;">Variables y Tipos</h3>
+                        <p class="text-gray-600">Contenedores para datos como números (`int`), texto (`String`) o valores lógicos (`boolean`), que forman la base de la información de un objeto.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <span class="text-5xl" role="img" aria-label="operadores">➕</span>
+                        <h3 class="text-2xl font-semibold mt-4 mb-2" style="color: #118AB2;">Operadores</h3>
+                        <p class="text-gray-600">Símbolos que realizan operaciones. Aritméticos (`+`, `-`), de comparación (`==`, `>`) y lógicos (`&&`, `||`) para tomar decisiones.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                         <span class="text-5xl" role="img" aria-label="flujo">🔀</span>
+                        <h3 class="text-2xl font-semibold mt-4 mb-2" style="color: #118AB2;">Control de Flujo</h3>
+                        <p class="text-gray-600">Estructuras como `if-else` y bucles `for` o `while` que dirigen el comportamiento del programa, dictando qué acciones se ejecutan y cuándo.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900 text-white font-mono p-6 rounded-lg mt-8 overflow-x-auto">
+                    <pre><code>public class SintaxisEjemplo {
+    public static void main(String[] args) {
+        // Declaración y asignación de variables
+        int edad = 30;
+        String nombre = "Carlos";
+        boolean esEstudiante = true;
+
+        // Uso de estructuras de control
+        if (edad >= 18) {
+            System.out.println(nombre + " es mayor de edad.");
+        } else {
+            System.out.println(nombre + " es menor de edad.");
+        }
+
+        // Bucle for
+        for (int i = 0; i < 3; i++) {
+            System.out.println("El valor de i es: " + i);
+        }
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="elementos-poo">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold" style="color: #073B4C;">2. ¿Qué es la POO? Clases y Objetos</h2>
+                    <p class="mt-2 text-gray-700 max-w-2xl mx-auto">La POO organiza el código en torno a "objetos", que son representaciones de entidades del mundo real. Todo comienza con una plantilla: la clase.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12">
+                        <div class="text-center p-6 border-2 border-dashed rounded-lg" style="border-color: #FF6B6B;">
+                            <span class="text-6xl" role="img" aria-label="clase"> blueprint icon 📋</span>
+                            <h3 class="text-2xl font-bold mt-2" style="color: #FF6B6B;">Clase: El Molde</h3>
+                            <p class="text-gray-600 mt-2">Define atributos y<br>comportamientos.</p>
+                            <p class="mt-2 font-mono p-2 rounded" style="background-color: #f1f1f1; color: #073B4C;">class Coche { ... }</p>
+                        </div>
+                        <div class="text-5xl font-thin" style="color: #118AB2;">→</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="text-center p-4 rounded-lg" style="background-color: #e3f2fd;">
+                                <span class="text-5xl" role="img" aria-label="objeto 1">🚗</span>
+                                <p class="font-semibold mt-2" style="color: #118AB2;">Objeto 1</p>
+                                <p class="text-sm text-gray-600">Coche("Toyota")</p>
+                            </div>
+                            <div class="text-center p-4 rounded-lg" style="background-color: #e3f2fd;">
+                                <span class="text-5xl" role="img" aria-label="objeto 2">🚙</span>
+                                <p class="font-semibold mt-2" style="color: #118AB2;">Objeto 2</p>
+                                <p class="text-sm text-gray-600">Coche("Ford")</p>
+                            </div>
+                            <div class="text-center p-4 rounded-lg" style="background-color: #e3f2fd;">
+                                <span class="text-5xl" role="img" aria-label="objeto 3">🏎️</span>
+                                <p class="font-semibold mt-2" style="color: #118AB2;">Objeto 3</p>
+                                <p class="text-sm text-gray-600">Coche("Ferrari")</p>
+                            </div>
+                             <div class="text-center p-4 rounded-lg" style="background-color: #e3f2fd;">
+                                <span class="text-5xl" role="img" aria-label="objeto 4">🚕</span>
+                                <p class="font-semibold mt-2" style="color: #118AB2;">Objeto 4</p>
+                                <p class="text-sm text-gray-600">Coche("Nissan")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-900 text-white font-mono p-6 rounded-lg mt-8 overflow-x-auto">
+                    <pre><code>public class Perro {
+    String nombre;
+    String raza;
+    
+    public void ladrar() {
+        System.out.println(nombre + " está ladrando.");
+    }
+
+    public static void main(String[] args) {
+        Perro miPerro = new Perro();
+        miPerro.nombre = "Fido";
+        miPerro.raza = "Golden Retriever";
+        miPerro.ladrar();
+    }
+}</code></pre>
+                </div>
+            </section>
+            
+            <section id="pilares-poo">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold" style="color: #073B4C;">3. Los 4 Pilares de la POO</h2>
+                    <p class="mt-2 text-gray-700 max-w-2xl mx-auto">Estos cuatro principios son la esencia de la POO. Permiten crear código robusto, reutilizable y fácil de mantener.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <span class="text-5xl" role="img" aria-label="encapsulamiento">💊</span>
+                        <h3 class="text-2xl font-semibold my-3" style="color: #FF6B6B;">Encapsulamiento</h3>
+                        <p class="text-gray-600">Oculta los datos internos de un objeto y expone solo métodos para interactuar con ellos, protegiendo la integridad de la información.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <span class="text-5xl" role="img" aria-label="herencia">👨‍👩‍👧‍👦</span>
+                        <h3 class="text-2xl font-semibold my-3" style="color: #FFD166;">Herencia</h3>
+                        <p class="text-gray-600">Permite a una clase (hija) heredar atributos y métodos de otra (padre), fomentando la reutilización y la jerarquía del código.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <span class="text-5xl" role="img" aria-label="polimorfismo">🎭</span>
+                        <h3 class="text-2xl font-semibold my-3" style="color: #06D6A0;">Polimorfismo</h3>
+                        <p class="text-gray-600">Objetos de diferentes clases pueden responder al mismo mensaje (método) de formas distintas, permitiendo un código más flexible.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <span class="text-5xl" role="img" aria-label="abstraccion">🧊</span>
+                        <h3 class="text-2xl font-semibold my-3" style="color: #118AB2;">Abstracción</h3>
+                        <p class="text-gray-600">Simplifica la complejidad mostrando solo las características esenciales de un objeto, ocultando los detalles irrelevantes.</p>
+                    </div>
+                </div>
+                 <div class="bg-gray-900 text-white font-mono p-6 rounded-lg mt-8 overflow-x-auto">
+                    <pre><code>// Clase base
+class Animal {
+    public void hacerSonido() {
+        System.out.println("El animal hace un sonido.");
+    }
+}
+
+// Subclase que hereda de Animal
+class Gato extends Animal {
+    @Override
+    public void hacerSonido() {
+        System.out.println("El gato maúlla.");
+    }
+}
+
+public class PolimorfismoEjemplo {
+    public static void main(String[] args) {
+        Animal miGato = new Gato();
+        miGato.hacerSonido();
+    }
+}</code></pre>
+                </div>
+            </section>
+            
+            <section id="clases-relevantes">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold" style="color: #073B4C;">4. Herramientas Esenciales de Java</h2>
+                    <p class="mt-2 text-gray-700 max-w-2xl mx-auto">Java ofrece una rica biblioteca de clases predefinidas que simplifican tareas comunes, desde manejar colecciones de datos hasta interactuar con el usuario.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-4 text-center" style="color: #06D6A0;">`ArrayList`: Colecciones Dinámicas</h3>
+                        <p class="text-gray-600 mb-4">Un `ArrayList` es una lista cuyo tamaño puede crecer o disminuir según sea necesario. Este gráfico muestra cómo cambia su tamaño con cada operación de `add()` o `remove()`.</p>
+                        <div class="chart-container">
+                            <canvas id="arrayListChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-4 text-center" style="color: #FFD166;">Otras Clases Fundamentales</h3>
+                        <div class="space-y-4">
+                             <div class="p-4 rounded-md" style="background-color: #fff8e1;">
+                                <h4 class="font-bold font-mono" style="color: #FFD166;">Scanner</h4>
+                                <p class="text-gray-700">Permite leer fácilmente la entrada de datos del usuario desde la consola.</p>
+                            </div>
+                            <div class="p-4 rounded-md" style="background-color: #e0f7fa;">
+                                <h4 class="font-bold font-mono" style="color: #118AB2;">HashMap</h4>
+                                <p class="text-gray-700">Almacena datos en pares clave-valor, ofreciendo una recuperación de información extremadamente rápida.</p>
+                            </div>
+                             <div class="p-4 rounded-md" style="background-color: #ffebee;">
+                                <h4 class="font-bold font-mono" style="color: #FF6B6B;">Date & Calendar</h4>
+                                <p class="text-gray-700">Proporcionan herramientas potentes para manejar y manipular fechas y horas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-900 text-white font-mono p-6 rounded-lg mt-8 overflow-x-auto">
+                    <pre><code>import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Date;
+import java.util.Calendar;
+
+public class ClasesRelevantesEjemplo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingresa tu nombre: ");
+        String nombreUsuario = scanner.nextLine();
+        System.out.println("Hola, " + nombreUsuario);
+        scanner.close();
+
+        ArrayList&lt;String&gt; listaNombres = new ArrayList&lt;&gt;();
+        listaNombres.add("Ana");
+        listaNombres.add("Luis");
+        System.out.println("Nombres en la lista: " + listaNombres);
+
+        HashMap&lt;String, Integer&gt; edades = new HashMap&lt;&gt;();
+        edades.put("Ana", 25);
+        edades.put("Luis", 30);
+        System.out.println("Edad de Ana: " + edades.get("Ana"));
+
+        Date fechaActual = new Date();
+        System.out.println("Fecha actual: " + fechaActual);
+
+        Calendar calendario = Calendar.getInstance();
+        System.out.println("Año actual: " + calendario.get(Calendar.YEAR));
+    }
+}</code></pre>
+                </div>
+            </section>
+            
+            <section id="conceptos-avanzados">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold" style="color: #073B4C;">5. Conceptos Adicionales</h2>
+                    <p class="mt-2 text-gray-700 max-w-2xl mx-auto">Para dominar la POO, es útil entender cómo los objetos se inicializan y cómo se gestionan eficientemente en las colecciones de datos.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                     <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h3 class="text-2xl font-semibold mb-4" style="color: #FF6B6B;">Hashing</h3>
+                        <p class="text-gray-600 mb-6">El hashing convierte cualquier dato en un número único de tamaño fijo. Es la magia detrás de la eficiencia de `HashMap`.</p>
+                        <div class="flex items-center justify-center space-x-4">
+                            <span class="font-mono text-lg p-3 rounded" style="background-color: #f1f1f1; color: #073B4C;">"Hola Mundo"</span>
+                             <span class="text-3xl font-thin" style="color: #118AB2;">→</span>
+                             <span class="font-mono text-2xl font-bold p-3 rounded" style="background-color: #ffebee; color: #FF6B6B;">2122130335</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-2 text-center" style="color: #06D6A0;">Constructor: El Inicio del Objeto</h3>
+                        <p class="text-gray-600 mb-4 text-center">Un método especial que se ejecuta al crear un objeto. Su misión es inicializar los atributos y dejar el objeto listo para ser usado.</p>
+                         <div class="chart-container h-64 md:h-72">
+                            <canvas id="constructorChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-900 text-white font-mono p-6 rounded-lg mt-8 overflow-x-auto">
+                    <pre><code>class Coche {
+    String marca;
+    String modelo;
+
+    // Constructor con parámetros
+    public Coche(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+        System.out.println("Se ha creado un nuevo coche.");
+    }
+
+    public static void main(String[] args) {
+        Coche miCoche = new Coche("Toyota", "Corolla");
+        System.out.println("Marca: " + miCoche.marca + ", Modelo: " + miCoche.modelo);
+    }
+}</code></pre>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-16 pt-8 border-t">
+            <p class="text-gray-600">&copy; 2025 Guía Visual de POO. Una infografía generada para explicar los conceptos clave de Java.</p>
+        </footer>
+    </div>
+
+    <script>
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        const arrayListCtx = document.getElementById('arrayListChart').getContext('2d');
+        new Chart(arrayListCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Inicio', 'add("Ana")', 'add("Luis")', 'add("Sofía")', 'remove(1)'],
+                datasets: [{
+                    label: 'Tamaño de la Lista',
+                    data: [0, 1, 2, 3, 2],
+                    backgroundColor: [
+                        '#FFD166',
+                        '#06D6A0',
+                        '#06D6A0',
+                        '#06D6A0',
+                        '#FF6B6B',
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                },
+                ...tooltipTitleCallback
+            }
+        });
+
+        const constructorCtx = document.getElementById('constructorChart').getContext('2d');
+        new Chart(constructorCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Atributos Inicializados', 'Métodos Listos', 'Objeto Preparado'],
+                datasets: [{
+                    label: 'Estado del Objeto',
+                    data: [100, 100, 100],
+                    backgroundColor: [
+                        '#06D6A0',
+                        '#118AB2',
+                        '#FFD166'
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    ...tooltipTitleCallback.plugins
+                }
+            }
+        });
+    </script>
+</body>
+</html>
